@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+    <!-- Navigation Section -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="img/profile.png" alt="Logo">
+            </div>
+            My Builds
+        </div>
+    
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+        </div>
+    
+        <a href="#" class="remix-btn" id="openModal">Contact Me!</a>
+    </nav>
+    
+    <!-- Modal -->
+    <div id="socialModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me!</h2>
+            <div class="social-icons">
+                <a href="https://discord.com/users/904405300776431616">
+                    <img src="img/discord.png" alt="Discord">
+                </a>
+                <a href="https://www.instagram.com/skynight_16/profilecard/">
+                    <img src="img/insta.png" alt="Instagram">
+                </a>
+                <a href="https://github.com/SkyNigh1">
+                    <img src="img/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="imageModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; flex-direction:column;">
+        <span class="close" id="closeImageModal" style="cursor:pointer; position:absolute; top:10px; right:20px; font-size:30px; color:white;">&times;</span>
+        <div id="caption" style="color:white; text-align:center; margin-bottom:15px; font-size:18px;"></div>
+        <img class="modal-content" id="imgInModal" style="max-width:90%; max-height:80%;">
+    </div>
+    
+    <main>
+        <section class="gallery-section">
+            <h1>My Builds</h1><br/>
+            <div class="gallery-group">
+                <h3>Villa of the Brown Rocks</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Villa des Roches Brunes/untitled.jpg" alt="Villa of the Brown Rocks">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Villa des Roches Brunes/untitled2.jpg" alt="Villa of the Brown Rocks">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Villa des Roches Brunes/untitled3.jpg" alt="Villa of the Brown Rocks">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Villa des Roches Brunes/untitled4.jpg" alt="Villa of the Brown Rocks">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="gallery-group">
+                <h3>Rammstein Stage</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Rammstein/Feuer_Frei.jpg" alt="Rammstein">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Rammstein/RichardPS.jpg" alt="Rammstein">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Rammstein/ramm-2.png" alt="Rammstein">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Rammstein/TillPS.jpg" alt="Rammstein">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="gallery-group">
+                <h3>Cap Mail</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Cap Mail/untitled2.jpg" alt="Cap Mail">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Cap Mail/untitled.jpg" alt="Cap Mail">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Cap Mail/untitled6.jpg" alt="Cap Mail">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Cap Mail/untitled4.jpg" alt="Cap Mail">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="gallery-group">
+                <h3>Guimet Museum</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Musée Guimet/untitled2.jpg" alt="Guimet Museum">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Musée Guimet/untitled3.jpg" alt="Guimet Museum">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Musée Guimet/untitled4.jpg" alt="Guimet Museum">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Musée Guimet/untitled6.jpg" alt="Guimet Museum">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="gallery-group">
+                <h3>Goodyear Blimp</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Dirigeable GoodYear/untitled.jpg" alt="Goodyear Blimp">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Dirigeable GoodYear/untitled2.jpg" alt="Goodyear Blimp">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Dirigeable GoodYear/untitled3.jpg" alt="Goodyear Blimp">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Circuit Bugatti/CIRCUITxDIRIGEABLE.jpg" alt="Goodyear Blimp">
+                    </div>
+                </div>
+            </div>
+            <h1>Cooperations</h1><br/>
+            <div class="gallery-group">
+                <h3>Bugatti Circuit</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Circuit Bugatti/untitled (1).jpg" alt="Bugatti Circuit">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Circuit Bugatti/00.png" alt="Bugatti Circuit">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Circuit Bugatti/10.png" alt="Bugatti Circuit">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Circuit Bugatti/20.png" alt="Bugatti Circuit">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-group">
+                <h3>Larressingle</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Larressingle/sans_nom2.jpg" alt="Larressingle">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Larressingle/1.jpg" alt="Larressingle">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Larressingle/2.jpg" alt="Larressingle">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Larressingle/sans_nom3.jpg" alt="Larressingle">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-group">
+                <h3>Chinon</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Forteresse de Chinon/sans_nom11.jpg" alt="Chinon">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Forteresse de Chinon/1.jpg" alt="Chinon">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Forteresse de Chinon/2.jpg" alt="Chinon">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Forteresse de Chinon/sans_nom12.jpg" alt="Chinon">
+                    </div>
+                </div>
+            </div>
+            <h1>Others</h1><br/>
+            <div class="gallery-group">
+                <h3>The Bakery</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Bakery/flowerpot.png" alt="Flower Pot">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-group">
+                <h3>Builder Refuge</h3>
+                <div class="images-grid">
+                    <div class="gallery-item">
+                        <img src="img/Gallery/Builder Refuge/castle.png" alt="Miniature Castle">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript to manage the modal -->
+<script>
+    // Get the modal element
+    var modal = document.getElementById("socialModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("openModal");
+
+    // Get the <span> element that closes the modal
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "flex";  // Display modal as flex to center its content
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal content, close the modal
+    window.onclick = function(event) {
+        // Check if the click target is the modal container, not the content inside it
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+    
+    <script>
+        // Récupérer l'élément modal
+        var imageModal = document.getElementById("imageModal");
+    
+        // L'image dans le modal et la légende
+        var modalImg = document.getElementById("imgInModal");
+        var captionText = document.getElementById("caption");
+    
+        // Récupérer toutes les images de la galerie
+        var galleryImages = document.querySelectorAll(".gallery-item img");
+    
+        // Pour chaque image, ajouter un écouteur d'événement
+        galleryImages.forEach(function(img) {
+            img.onclick = function() {
+                imageModal.style.display = "flex";  // Affiche la popup
+                modalImg.src = this.src;  // Met l'image cliquée dans le modal
+                captionText.innerHTML = this.alt;  // Affiche la légende (alt) de l'image
+            }
+        });
+    
+        // Récupérer l'élément de fermeture
+        var closeImageModal = document.getElementById("closeImageModal");
+    
+        // Fermer la popup quand on clique sur la croix
+        closeImageModal.onclick = function() {
+            imageModal.style.display = "none";
+        }
+    
+        // Fermer la popup si l'utilisateur clique en dehors de l'image
+        window.onclick = function(event) {
+            if (event.target == imageModal) {
+                imageModal.style.display = "none";
+            }
+        }
+    </script>    
+</body>
+</html>
