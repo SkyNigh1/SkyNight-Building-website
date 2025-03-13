@@ -13,12 +13,6 @@ body {
     min-height: 100vh;
 }
 
-.showcase {
-    width: 60%;
-    height: auto;
-    border-radius: 12px;
-}
-
 /* Navigation */
 nav {
     display: flex;
@@ -40,7 +34,6 @@ nav {
     border-radius: 30px;
     width: 60px;
     height: 60px;
-    
 }
 
 .logo-icon img {
@@ -116,15 +109,15 @@ nav {
 
 /* ----- CONTINUATION DU CODE EXISTANT (non modifié pour le reste) ----- */
 
-/* Structure de la section main */
+/* Assurer que main occupe toute la largeur disponible */
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
-    gap: 2rem; /* Espacement entre les colonnes */
+    grid-template-columns: 1fr;
+    gap: 4rem;
     padding: 4rem 6rem;
     align-items: start;
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%; /* Assure-toi que main occupe toute la largeur */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
 }
 
 /* Hero Content */
@@ -250,18 +243,17 @@ main {
     color: #00a767; /* Couleur du texte */
 }
 
-/* Style pour la grille des serveurs */
 .server-grid {
     display: flex;
-    gap: 4rem;
-    align-items: center; /* Aligne les items verticalement */
-    flex-wrap: wrap; /* Permet aux éléments de se réorganiser si nécessaire */
-    margin-top: 30px;
+    justify-content: flex-start; /* Aligne les serveurs à gauche */
+    gap: 2rem; /* Espacement entre les serveurs */
+    margin-top: 1rem;
 }
 
 .server-item {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     transition: transform 0.3s ease;
 }
 
@@ -269,21 +261,17 @@ main {
     transform: scale(1.05); /* Zoom léger au survol */
 }
 
-/* Style pour les images des serveurs */
 .server_img {
-    width: 90px; /* Ajuste la taille des images */
-    height: auto;
-    border-radius: 90px; /* Optionnel: ajoute des coins arrondis */
-    margin-bottom: 10px; /* Espace entre l'image et le texte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); /* Ombre autour de l'icône du logo */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Rendre les images circulaires */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ajouter une ombre */
 }
 
-/* Style pour le nom des serveurs */
 .server-name {
-    text-align: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: #ebebeb; /* Change la couleur du texte si besoin */
+    margin-top: 0.5rem;
 }
 
 /* Styles pour la fenêtre modale */
@@ -539,40 +527,4 @@ main {
     .nav-links {
         display: none;
     }
-}
-
-
-/* Style de la section Sanctuary */
- /* Style de la section Sanctuary */
- .sanctuary {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Pleine hauteur */
-    z-index: 2;
-    background: url('sanctuary-image.jpg') no-repeat center center;
-    background-size: cover;
-    transition: transform 0.3s ease-out;
-}
-
-/* Style de la section inférieure */
-.section-bottom {
-    height: 200vh; /* Hauteur grande pour tester le scroll */
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-family: Arial, sans-serif;
-}
-
-.section-top {
-    height: 100vh; /* Pleine hauteur */
-    background-color: #f0f0f0; /* Couleur d’arrière-plan */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-family: Arial, sans-serif;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>My Minecraft Showcase</title>
     <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
@@ -12,15 +12,15 @@
     <nav>
         <div class="logo">
             <div class="logo-icon">
-                <img src="img/profile.png" alt="Logo">
+                <img src="img/profile.jpg" alt="Logo">
             </div>
             My Builds
         </div>
     
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
+            <a href="SkymcDB.html">SkymcDB</a>
+            <a href="renders.html">Renders Gallery</a>
         </div>
     
         <a href="#" class="remix-btn" id="openModal">Contact Me!</a>
@@ -35,7 +35,7 @@
                 <a href="https://discord.com/users/904405300776431616">
                     <img src="img/discord.png" alt="Discord">
                 </a>
-                <a href="https://www.instagram.com/skynight_16/profilecard/">
+                <a href="https://www.instagram.com/skynight.builds/profilecard/">
                     <img src="img/insta.png" alt="Instagram">
                 </a>
                 <a href="https://github.com/SkyNigh1">
@@ -215,38 +215,40 @@
         </section>
     </main>
 
-    <!-- JavaScript to manage the modal -->
-<script>
-    // Get the modal element
-    var modal = document.getElementById("socialModal");
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Website created by <strong>SkyNight</strong>. All rights reserved &copy; 2025</p>
+            <p><a href="/legal-notice">Legal Notice</a> | <a href="/privacy-policy">Privacy Policy</a></p>
+        </div>
+    </footer>
+        <!-- JavaScript to manage the modal -->
+    <script>
+        // Get the modal element
+        var modal = document.getElementById("socialModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("openModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModal");
 
-    // Get the <span> element that closes the modal
-    var closeBtn = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var closeBtn = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "flex";  // Display modal as flex to center its content
-    }
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "flex";  // Display modal as flex to center its content
+        }
 
-    // When the user clicks on <span> (x), close the modal
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal content, close the modal
-    window.onclick = function(event) {
-        // Check if the click target is the modal container, not the content inside it
-        if (event.target === modal) {
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.onclick = function() {
             modal.style.display = "none";
         }
-    }
-</script>
 
-    
-    <script>
+        // When the user clicks anywhere outside of the modal content, close the modal
+        window.onclick = function(event) {
+            // Check if the click target is the modal container, not the content inside it
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
         // Récupérer l'élément modal
         var imageModal = document.getElementById("imageModal");
     
@@ -273,7 +275,14 @@
         closeImageModal.onclick = function() {
             imageModal.style.display = "none";
         }
-    
+        
+        // Fermer la modale si on clique en dehors de la modale
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Cache la modale
+            }
+        });
+
         // Fermer la popup si l'utilisateur clique en dehors de l'image
         window.onclick = function(event) {
             if (event.target == imageModal) {

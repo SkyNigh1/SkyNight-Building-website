@@ -261,6 +261,39 @@ nav {
     transform: scale(1.05);
 }
 
+/* Styles pour le pied de page */
+.footer {
+    background-color: #222; /* Couleur de fond sombre */
+    color: #fff; /* Couleur du texte claire */
+    padding: 20px 0; /* Espacement interne du pied de page */
+    text-align: center; /* Centrer le texte */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px; /* Largeur maximale pour centrer le contenu */
+    margin: 0 auto; /* Centrer le contenu */
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 0.5rem 0; /* Marge pour espacer les lignes */
+    font-size: 1rem; /* Taille de police plus petite */
+}
+
+.footer a {
+    color: #fff; /* Liens blancs */
+    text-decoration: none; /* Enlever le soulignement */
+    margin: 0 10px; /* Espacement entre les liens */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Souligner au survol */
+}
+
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .gallery-section {

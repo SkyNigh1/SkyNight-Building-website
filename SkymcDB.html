@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Minecraft Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon"><img src="img/profile.jpg" class="logo-icon" alt="Profile Icon"></div>
+            SkymcDB
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">My Builds</a>
+            <a href="renders.html">Renders Gallery</a>
+        </div>
+        <a href="javascript:void(0);" id="openModal" class="remix-btn">Contact Me!</a>
+    </nav>
+
+    <div id="socialModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me!</h2>
+            <p>Connect with me on:</p>
+            <ul class="social-icons">
+                <li><a href="https://discord.com/users/904405300776431616"><img src="img/discord.png" alt="Discord" class="discord_logo"></a></li>
+                <li><a href="https://www.instagram.com/skynight.builds/profilecard/"><img src="img/insta.png" alt="Instagram" class="insta_logo"></a></li>
+                <li><a href="https://github.com/SkyNigh1"><img src="img/github.png" alt="GitHub" class="github_logo"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-content">
+            <h1>SkymcDB - A Java Tool for Builders</h1><br/><br/><br/>
+            <p class="hero-subtitle">SkymcDB is a standalone local application that brings together three powerful features for Minecraft builders: 
+                color-to-block conversion, gradient generation, and pixel art rendering. Designed for efficiency and precision, SkymcDB runs directly 
+                on your computer, allowing you to create detailed structures without the need for external tools. Whether you're mapping colors to
+                 Minecraft blocks, generating smooth gradients, or converting images into pixel art, this all-in-one software makes building in Minecraft 
+                 easier and more intuitive.</p>
+            <div class="cta-buttons">
+                <a href="#download" class="buy-btn">Get SkymcDB</a>
+            </div>
+            <p class="hero-subtitle">Color to Block Conversion :<br/>Instantly transform any RGB color into the closest matching Minecraft block for accurate and seamless builds.</p>
+            <div class="showcase">
+                <img src="img/SkymcDB/skull.jpg" alt="Render 3" class="showcase">
+                <p class="render-title">Milo's Profile</p>
+            </div><br/>
+            <p class="hero-subtitle">Gradient Generator :<br/> Effortlessly create smooth Minecraft block gradients to enhance transitions and add depth to your designs.</p>
+            <div class="showcase">
+                <img src="img/SkymcDB/flower.jpg" alt="Render 3" class="showcase">
+                <p class="render-title">Milo's Profile</p>
+            </div><br/>
+            <p class="hero-subtitle">Pixel Art Generator :<br/> Convert images into detailed Minecraft pixel art, making it easy to bring your creative visions to life.</p>
+            <div class="showcase">
+                <img src="img/SkymcDB/house.png" alt="Render 3" class="showcase">
+                <p class="render-title">Milo's Profile</p>
+            </div><br/>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Color to Block Conversion</h3>  
+                    <p>Convert any RGB color value to the nearest Minecraft block color.</p><br/>
+                    <!-- Vidéo MP4 -->
+                    <video autoplay muted loop width="70%" height="auto">
+                        <source src="video/color-bloc.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div><br/><br/>
+                <div class="feature-item">
+                    <h3>Gradient Generator</h3>
+                    <p>Generate seamless gradients using Minecraft blocks for smoother transitions in your builds.</p><br/>
+                    <!-- Vidéo MP4 -->
+                    <video autoplay muted loop width="70%" height="auto">
+                        <source src="video/gradient.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div><br/><br/>
+                <div class="feature-item">
+                    <h3>Pixel Art Generator</h3>
+                    <p>Create pixel art designs with Minecraft blocks, perfect for bringing your creative vision to life.</p><br/>
+                    <!-- Vidéo MP4 -->
+                    <video autoplay muted loop width="70%" height="auto">
+                        <source src="video/pixelArt.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="download" id="download">
+            <h2>Download SkymcDB</h2>
+            <p>Start using SkymcDB today to enhance your Minecraft building experience.</p><br/>
+            <a href="Files/SkymcDB_Installer.exe" download="SkymcDB_Setup_v1.0.exe" class="buy-btn">Download SkymcDB Installer</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Website created by <strong>SkyNight</strong>. All rights reserved &copy; 2025</p>
+            <p><a href="/legal-notice">Legal Notice</a> | <a href="/privacy-policy">Privacy Policy</a></p>
+        </div>
+    </footer>
+    
+
+    <script>
+        // Récupère l'élément de la modale et le bouton pour l'ouvrir
+        const openModalButton = document.getElementById("openModal");
+        const modal = document.getElementById("socialModal");
+        const closeBtn = modal.querySelector(".close");
+
+        // Ajouter l'événement pour ouvrir la modale
+        openModalButton.addEventListener("click", function() {
+            modal.style.display = "flex"; // Affiche la modale
+        });
+
+        // Ajouter l'événement pour fermer la modale (quand on clique sur la croix)
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none"; // Cache la modale
+        });
+
+        // Fermer la modale si on clique en dehors de la modale
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Cache la modale
+            }
+        });
+            // Écouteur d'événement pour le bouton "Download Now"
+        document.querySelector('.buy-btn').addEventListener('click', function(e) {
+            // Empêche le comportement par défaut du lien
+            e.preventDefault();
+
+            // Cible la section de téléchargement
+            const target = document.querySelector('#download');
+
+            // Défilement fluide vers la section
+            window.scrollTo({
+                top: target.offsetTop,  // Position verticale de la section ciblée
+                behavior: 'smooth'      // Effet de défilement fluide
+            });
+        });
+    </script>
+</body>
+</html>
