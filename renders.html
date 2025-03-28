@@ -51,79 +51,44 @@
     </footer>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("images.json")
-                .then(response => response.json())
-                .then(images => {
-                    const gallery = document.querySelector(".gallery");
+        fetch("img/images.json")
+            .then(response => response.json())
+            .then(images => {
+                const gallery = document.querySelector(".gallery");
+                images.forEach(image => {
+                    const item = document.createElement("div");
+                    item.classList.add("gallery-item");
 
-                    images.forEach(image => {
-                        const div = document.createElement("div");
-                        div.classList.add("gallery-item");
+                    const img = document.createElement("img");
+                    img.classList.add("gallery-img");
+                    img.src = `img/Renders/${image.file}`;
+                    img.alt = image.title;
 
-                        const img = document.createElement("img");
-                        img.src = `img/Renders/${image}`;
-                        img.classList.add("gallery-img");
-                        img.alt = image;
+                    const title = document.createElement("p");
+                    title.classList.add("render-title");
+                    title.textContent = image.title;
 
-                        const title = document.createElement("p");
-                        title.classList.add("render-title");
-                        title.textContent = image.replace(/\.[^/.]+$/, "").replace(/_/g, " ");
-
-                        div.appendChild(img);
-                        div.appendChild(title);
-                        gallery.appendChild(div);
-                    });
-                })
-                .catch(error => console.error("Erreur lors du chargement des images :", error));
-        });
-
-        // Gestion de la lightbox (agrandissement des images au clic)
-        document.addEventListener("click", function (event) {
-            if (event.target.classList.contains("gallery-img")) {
-                const lightboxOverlay = document.createElement("div");
-                lightboxOverlay.classList.add("lightbox-overlay");
-
-                const lightboxImage = document.createElement("img");
-                lightboxImage.classList.add("lightbox-img");
-                lightboxImage.src = event.target.src;
-
-                const closeBtn = document.createElement("span");
-                closeBtn.classList.add("close-lightbox");
-                closeBtn.innerHTML = "&times;";
-
-                lightboxOverlay.appendChild(lightboxImage);
-                lightboxOverlay.appendChild(closeBtn);
-                document.body.appendChild(lightboxOverlay);
-
-                lightboxOverlay.style.display = "flex";
-
-                closeBtn.addEventListener("click", () => {
-                    lightboxOverlay.remove();
+                    item.appendChild(img);
+                    item.appendChild(title);
+                    gallery.appendChild(item);
                 });
-
-                lightboxOverlay.addEventListener("click", (e) => {
-                    if (e.target === lightboxOverlay) {
-                        lightboxOverlay.remove();
-                    }
-                });
-            }
-        });
+            })
+            .catch(error => console.error("Erreur lors du chargement des images :", error));
 
         // Gestion de la modale de contact
         const openModalButton = document.getElementById("openModal");
         const modal = document.getElementById("socialModal");
         const closeBtn = modal.querySelector(".close");
 
-        openModalButton.addEventListener("click", function () {
+        openModalButton.addEventListener("click", function() {
             modal.style.display = "flex";
         });
 
-        closeBtn.addEventListener("click", function () {
+        closeBtn.addEventListener("click", function() {
             modal.style.display = "none";
         });
 
-        modal.addEventListener("click", function (event) {
+        modal.addEventListener("click", function(event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
