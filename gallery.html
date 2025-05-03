@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie de rendus haute qualité des créations de SkyNight, builder professionnel.">
+    <meta name="keywords" content="SkyNight, renders, 3D, galerie, portfolio, architecture virtuelle">
+    <meta name="author" content="SkyNight">
+    <meta name="theme-color" content="#121212">
+    <title>SkyNight | Renders Gallery</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Variables et styles de base (identiques à la page d'accueil) */
+        :root {
+            /* Couleurs du thème noir */
+            --color-bg-primary: #121212;
+            --color-bg-secondary: #1a1a1a;
+            --color-bg-tertiary: #222222;
+            --color-bg-accent: #2d2d2d;
+            
+            /* Couleurs d'accent */
+            --color-accent-dark: rgb(0, 115, 73);
+            --color-accent-light: rgb(64, 215, 124);
+            --color-accent-gradient: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent-light));
+            
+            /* Couleurs de texte */
+            --color-text-primary: rgba(255, 255, 255, 0.95);
+            --color-text-secondary: rgba(255, 255, 255, 0.75);
+            --color-text-tertiary: rgba(255, 255, 255, 0.5);
+            
+            /* Couleurs d'overlay */
+            --color-overlay-subtle: rgba(0, 0, 0, 0.3);
+            --color-overlay-medium: rgba(0, 0, 0, 0.6);
+            --color-overlay-strong: rgba(0, 0, 0, 0.85);
+            
+            /* Couleurs d'interface */
+            --color-surface: rgba(255, 255, 255, 0.05);
+            --color-surface-hover: rgba(255, 255, 255, 0.08);
+            --color-surface-active: rgba(255, 255, 255, 0.12);
+            --color-border: rgba(255, 255, 255, 0.1);
+            
+            /* Espacement */
+            --space-3xs: 0.25rem;
+            --space-2xs: 0.375rem;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Typographie */
+            --font-primary: 'Outfit', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --fw-light: 300;
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            --fw-extrabold: 800;
+            --fw-black: 900;
+            
+            /* Ombres */
+            --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.4);
+            --shadow-accent: 0 5px 25px rgba(64, 215, 124, 0.3);
+            
+            /* Border Radius */
+            --radius-xs: 3px;
+            --radius-sm: 5px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-circle: 50%;
+            --radius-pill: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Z-index */
+            --z-below: -1;
+            --z-base: 1;
+            --z-elevated: 10;
+            --z-navbar: 100;
+            --z-dropdown: 200;
+            --z-modal: 300;
+            --z-overlay: 400;
+            --z-max: 999;
+        }
+        
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: var(--font-secondary);
+            font-weight: var(--fw-regular);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: var(--fw-bold);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-medium);
+        }
+        
+        button {
+            font-family: var(--font-primary);
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        ul, ol {
+            list-style: none;
+        }
+        
+        img, svg, video {
+            display: block;
+            max-width: 100%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 clamp(var(--space-sm), 5vw, var(--space-xl));
+        }
+        
+        .text-accent {
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-navbar);
+            padding: var(--space-md);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-border);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-scrolled {
+            padding: var(--space-xs);
+        }
+        
+        .nav-scrolled .nav-inner {
+            background: rgba(18, 18, 18, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo-symbol {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-circle);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-symbol::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: var(--color-accent-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            mask-composite: exclude;
+        }
+        
+        .logo-symbol::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: var(--radius-circle);
+            background: var(--color-accent-gradient);
+            animation: pulse 3s infinite;
+        }
+        
+        .logo {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: var(--fw-black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-family: var(--font-primary);
+            font-weight: var(--fw-medium);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-secondary);
+            transition: var(--transition-medium);
+            padding: var(--space-xs) 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent-gradient);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text-primary);
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-circle);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            z-index: var(--z-max);
+            transition: var(--transition-medium);
+        }
+        
+        /* Header */
+        .page-header {
+            position: relative;
+            padding: 120px 0 var(--space-3xl);
+            overflow: hidden;
+        }
+        
+        .page-header-bg {
+            position: absolute;
+            inset: 0;
+            z-index: var(--z-below);
+            background-color: var(--color-bg-secondary);
+            overflow: hidden;
+        }
+        
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+            z-index: var(--z-below);
+        }
+        
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=');
+            opacity: 0.3;
+            z-index: var(--z-base);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: var(--z-elevated);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .page-subtitle {
+            display: inline-block;
+            margin-bottom: var(--space-sm);
+            color: var(--color-accent-light);
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .page-title {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: var(--space-lg);
+            font-weight: var(--fw-black);
+        }
+        
+        .page-description {
+            color: var(--color-text-secondary);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+        }
+        
+        /* Filtres de la galerie */
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .filter-chip {
+            padding: var(--space-xs) var(--space-lg);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-primary);
+            font-weight: var(--fw-medium);
+            font-size: 0.95rem;
+            transition: var(--transition-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .filter-chip:hover {
+            background: var(--color-surface-hover);
+            transform: translateY(-3px);
+        }
+        
+        .filter-chip.active {
+            background: var(--color-accent-gradient);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        /* Galerie style Pinterest */
+        .gallery-section {
+            padding-bottom: var(--space-3xl);
+        }
+        
+        .gallery-container {
+            columns: 4 250px;
+            column-gap: var(--space-lg);
+        }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateZ(0); /* Pour la performance des animations */
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--color-accent-gradient);
+            opacity: 0;
+            z-index: 1;
+            transition: var(--transition-medium);
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 0.3;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: scale(1);
+            transition: var(--transition-slow);
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: var(--transition-medium);
+            z-index: 2;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+            font-weight: var(--fw-semibold);
+            margin-bottom: var(--space-xs);
+            transform: translateY(20px);
+            transition: var(--transition-medium);
+            transition-delay: 0.1s;
+            color: var(--color-text-primary);
+        }
+        
+        .gallery-item:hover .gallery-title {
+            transform: translateY(0);
+        }
+        
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(20px);
+            transition: var(--transition-medium);
+            transition-delay: 0.2s;
+        }
+        
+        .gallery-item:hover .gallery-meta {
+            transform: translateY(0);
+        }
+        
+        .gallery-category {
+            font-size: 0.85rem;
+            color: var(--color-accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .gallery-actions {
+            display: flex;
+            gap: var(--space-xs);
+        }
+        
+        .gallery-action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-circle);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            transition: var(--transition-medium);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gallery-action-btn:hover {
+            background: var(--color-accent-gradient);
+            transform: scale(1.1);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: var(--z-overlay);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-lg);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+        }
+        
+        .lightbox-title {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: var(--fw-bold);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .lightbox-description {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-circle);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            z-index: var(--z-max);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .lightbox-close:hover {
+            background: var(--color-accent-gradient);
+            transform: rotate(90deg);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-circle);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            z-index: var(--z-max);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .lightbox-prev {
+            left: var(--space-lg);
+        }
+        
+        .lightbox-next {
+            right: var(--space-lg);
+        }
+        
+        .lightbox-nav:hover {
+            background: var(--color-accent-gradient);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Load More Button */
+        .load-more-container {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-2xl);
+        }
+        
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-primary);
+            font-weight: var(--fw-semibold);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-medium);
+        }
+        
+        .load-more-btn:hover {
+            background: var(--color-accent-gradient);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-accent);
+            border-color: transparent;
+        }
+        
+        .load-more-btn i {
+            transition: var(--transition-medium);
+        }
+        
+        .load-more-btn:hover i {
+            transform: rotate(180deg);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+        
+        /* États animés */
+        .animate-fade-in {
+            animation: fadeIn 1s both;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s both;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        
+        /* Footer */
+        .footer {
+            position: relative;
+            padding: var(--space-2xl) clamp(var(--space-sm), 5vw, var(--space-xl)) var(--space-lg);
+            background: var(--color-bg-tertiary);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: var(--fw-extrabold);
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+        
+        .footer-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-circle);
+            background: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            transition: var(--transition-medium);
+            border: 1px solid var(--color-border);
+        }
+        
+        .social-link:hover {
+            background: var(--color-accent-gradient);
+            transform: translateY(-5px);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .footer-heading {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: var(--fw-bold);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background: var(--color-accent-gradient);
+            border-radius: var(--radius-pill);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-text-secondary);
+            transition: var(--transition-medium);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-accent-light);
+            transform: translateX(5px);
+        }
+        
+        .footer-link-icon {
+            font-size: 0.75rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .contact-icon {
+            color: var(--color-accent-light);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .contact-text {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: var(--space-md);
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+            color: var(--color-text-primary);
+            font-size: 0.875rem;
+            outline: none;
+            transition: var(--transition-medium);
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--color-accent-light);
+            background: var(--color-surface-hover);
+        }
+        
+        .newsletter-button {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-accent-gradient);
+            border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+            color: white;
+            font-size: 0.875rem;
+            transition: var(--transition-medium);
+        }
+        
+        .newsletter-button:hover {
+            filter: brightness(1.1);
+        }
+        
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-tertiary);
+            font-size: 0.875rem;
+        }
+        
+        .footer-copyright a {
+            color: var(--color-accent-light);
+            font-weight: var(--fw-medium);
+        }
+        
+        .footer-links-bottom {
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .footer-link-bottom {
+            color: var(--color-text-tertiary);
+            transition: var(--transition-medium);
+        }
+        
+        .footer-link-bottom:hover {
+            color: var(--color-accent-light);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .gallery-container {
+                columns: 3 250px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .gallery-container {
+                columns: 2 250px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--color-bg-tertiary);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--space-lg);
+                transition: var(--transition-medium);
+                z-index: var(--z-navbar);
+            }
+            
+            .nav-links.active {
+                right: 0;
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                columns: 1 250px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+            
+            .footer-links-bottom {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .lightbox-prev {
+                left: var(--space-sm);
+            }
+            
+            .lightbox-next {
+                right: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="logo-container">
+                <div class="logo-symbol"></div>
+                <div class="logo">SkyNight</div>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="builds.html" class="nav-link">My Builds</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Renders Gallery</a></li>
+                    <li><a href="skymcdb.html" class="nav-link">SkymcDB</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-header-bg">
+            <div class="page-header-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="header-content animate-fade-in">
+                <span class="page-subtitle">Galerie</span>
+                <h1 class="page-title">Rendus <span class="text-accent">Visuels</span></h1>
+                <p class="page-description">
+                    Explorez ma collection de rendus haute définition, capturant la beauté et les détails de mes créations architecturales sous leurs meilleurs angles.
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Filtres -->
+    <div class="container">
+        <div class="gallery-filters animate-slide-up">
+            <button class="filter-chip active" data-filter="all">Tous</button>
+            <button class="filter-chip" data-filter="Profile">Profile</button>
+            <button class="filter-chip" data-filter="1:1">1:1</button>
+            <button class="filter-chip" data-filter="Spawn">Spawn</button>
+            <button class="filter-chip" data-filter="Organic">Organic</button>
+            <button class="filter-chip" data-filter="Boat">Boat</button>
+        </div>
+    </div>
+    
+    <!-- Galerie Pinterest -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-container">
+                <!-- Item 1 - Tall -->
+                <div class="gallery-item animate-fade-in delay-100" data-category="Profile">
+                    <img src="./img/renders/6tern.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">6tern's Profile</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Profile</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="6tern's Profile" data-description="Rendu 3D de la photo de profil pour 6tern, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 2 - Wide -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="1:1">
+                    <img src="./img/renders/boyard3.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Fort-Boyard</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Fort-Boyard" data-description="Rendu 3D du célèbre Fort-Boyard, mettant en avant les détails architecturaux et l'environnement marin.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 - Square -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="1:1">
+                    <img src="./img/renders/bugattifull.png" alt="L'Arbre-Cité vue aérienne" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Le Circuit bugatti</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Le circuit bugatti" data-description="Le circuit de Bugatti, capturé dans un rendu 3D détaillé, mettant en avant les courbes et les textures du terrain.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 4 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/capmail.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Capmail</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Capmail" data-description="Rendu 3D du Capmail, un batiment emblématique de rennes, mettant en avant les détails architecturaux et l'environnement urbain.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 5 - Tall -->
+                <div class="gallery-item animate-fade-in delay-100" data-category="1:1">
+                    <img src="./img/renders/chinon.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title"></h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Forteresse de chinon" data-description="La Forteresse de chinon , capturée dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 6 - Square -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="structure">
+                    <img src="./img/renders/dysney.png" alt="Village Boréal nuit" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Disney by indy</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Structure</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Disney by indy" data-description="Disney par indy, un rendu 3D captivant qui met en avant les détails architecturaux et l'environnement féérique.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 7 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="Spawn">
+                    <img src="./img/renders/f4g.jpg" alt="Panorama ville médiévale" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Spawn Fight4Glory</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Spawn</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Spawn Fight4Glory" data-description="Spawn Fight4Glory et un grand spawn dans le théme grecque, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 8 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/fort.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Fort Napoléon by MaxLananas</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Fort Napoléon by MaxLananas" data-description="Rendu 3D du Fort Napoléon, située sur l'ile des Saintes en Guadeloupe mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 9 - Tall -->
+                <div class="gallery-item animate-fade-in delay-100" data-category="1:1">
+                    <img src="./img/renders/bugatti.jpg" alt="Grande cascade arbre" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Bugatti</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Bugatti" data-description="Rendu 3D d'un virage du circuit bugatti en mettant en mouvement des f1.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 10 - Square -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="Organic">
+                    <img src="./img/renders/FoxFinal.png" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Renard</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Organic</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Renard" data-description="Un organique renard, capturé dans un rendu 3D détaillé, mettant en avant les détails de la fourrure et l'environnement naturel enneigée.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 11 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="Spawn">
+                    <img src="./img/renders/f4g2.jpg" alt="Bibliothèque magique" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Spawn Fight4Glory</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Spawn</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Spawn Fight4Glory" data-description="Spawn Fight4Glory et un grand spawn dans le théme grecque, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 12 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="Organic">
+                    <img src="./img/renders/gazMask.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">GazMask by Indy</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Organic</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="GazMask" data-description="Un masque à gaz organique, capturé dans un rendu 3D détaillé, mettant en avant les détails de la texture et l'environnement naturel.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 13 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/guimet.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Musée Guimet</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Le mussée Guimet" data-description="Rendu 3D du musée Guimet, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 14 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="Spawn">
+                    <img src="./img/renders/f4g3.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Spawn Fight4Glory</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Spawn</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Spawn Fight4Glory" data-description="Spawn Fight4Glory et un grand spawn dans le théme grecque, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 15 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="Profile">
+                    <img src="./img/renders/indy.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Indy's Profile</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Profile</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Indy's Profile" data-description="Rendu 3D de la photo de profil pour Indy, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 16 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/larressingle.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Larresingle</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Larresingle" data-description="Larresingle et un village médiéval fortifiée, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 17 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/guimet2.jpg" alt="Forge nordique" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Musée Guimet</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Le mussée Guimet" data-description="Rendu 3D du musée Guimet, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 18 - Tall -->
+                <div class="gallery-item animate-fade-in delay-100" data-category="Boat">
+                    <img src="./img/renders/marite.jpg" alt="Grande cascade arbre" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Le Marité</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Boat / 1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Le Marité" data-description="La Marité et un vieux gréement de pêche, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Item 19 - Square -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="1:1">
+                    <img src="./img/renders/larressingle2.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Larresingle</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Larresingle" data-description="Larresingle et un village médiéval fortifiée, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 20 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="Profile">
+                    <img src="./img/renders/max.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">MaxLananas's Profile</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Profile</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="MaxLananas's Profile" data-description="Rendu 3D de la photo de profil pour MaxLananas, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 21 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/rammstein.png" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Scéne de Rammstein</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Scéne de Rammstein" data-description="La mythique scène de Rammstein, capturée dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Item 23 - Square -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="Profile">
+                    <img src="./img/renders/milo.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Milo's Profile</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Profile</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Milo's Profile" data-description="Rendu 3D de la photo de profil pour Milo, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 24 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="Spawn">
+                    <img src="./img/renders/sanctuarylobby.jpg" alt="Bibliothèque magique" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Lobby Sanctuary</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Spawn</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Lobby de Sanctuary" data-description="Lobby de Sanctuary, un spawn pour le serveur Sanctuary, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 26 - Tall -->
+                <div class="gallery-item animate-fade-in delay-100" data-category="organic">
+                    <img src="./img/renders/statue.png" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Statue</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Organic</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Statue" data-description="Une statue organique, capturée dans un rendu 3D détaillé, mettant en avant les détails de la texture et l'environnement naturel.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Item 23 - Square -->
+                <div class="gallery-item animate-fade-in delay-200" data-category="1:1">
+                    <img src="./img/renders/Till.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Till de Rammstein</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Till de Rammstein" data-description="Rendu 3D de Till de Rammstein, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 24 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="1:1">
+                    <img src="./img/renders/track.png" alt="Bibliothèque magique" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Circuit Bugatti</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Circuit Bugatti" data-description="Un rendu du circuit Bugatti, avec des nuages et une mongolfiére, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 25 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="Profile">
+                    <img src="./img/renders/skynight.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">SkyNight's profile</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Profile</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="SkyNight's profile" data-description="Rendu 3D de la photo de profil pour SkyNight, mettant en avant les détails et la texture de l'environnement.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 28 - Wide -->
+                <div class="gallery-item animate-fade-in delay-300" data-category="Spawn">
+                    <img src="./img/renders/treeSunset.jpg" alt="Bibliothèque magique" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Spawn de Sanctuary</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Spawn</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Spawn de Sanctuary" data-description="Spawn de Sanctuary, un spawn pour le serveur Sanctuary, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 29 - Medium -->
+                <div class="gallery-item animate-fade-in delay-400" data-category="1:1">
+                    <img src="./img/renders/villa.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Villa des Roches Brunes</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">1:1</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Villa des Roches Brunes" data-description="La Villa des Roches Brunes situé a Dinard reproduit a l'échelle 1:1, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade-in delay-400" data-category="Boat">
+                    <img src="./img/renders/mariteClouds.jpg" alt="" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">La marité</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-category">Boat</span>
+                            <div class="gallery-actions">
+                                <button class="gallery-action-btn lightbox-trigger" data-title="Le marité" data-description="La Marité et un vieux gréement de pêche, capturé dans un rendu 3D détaillé, mettant en avant les détails architecturaux et l'environnement environnant.">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button class="gallery-action-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bouton Charger Plus -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    Charger plus <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption">
+                <h3 class="lightbox-title"></h3>
+                <p class="lightbox-description"></p>
+            </div>
+        </div>
+        <button class="lightbox-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <div class="logo-symbol"></div>
+                    <a href="#" class="footer-logo">SkyNight</a>
+                </div>
+                <p class="footer-description">
+                    Création d'univers architecturaux virtuels uniques et immersifs. Builder passionné offrant des services de construction personnalisés de haute qualité.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.patreon.com/SkyNightBuilds" class="social-link" target="_blank"><i class="fab fa-patreon"></i></a>
+                    <a href="https://www.instagram.com/skynight.builds/profilecard/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/SkyNigh1" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/users/904405300776431616" class="social-link" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/SkyNight_Builds" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                </div>>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
+                    <li><a href="builds.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> My Builds</a></li>
+                    <li><a href="gallery.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Renders Gallery</a></li>
+                    <li><a href="skymcdb.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> SkymcDB</a></li>
+                    <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> À propos</a></li>
+                    <li><a href="#services" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Contact</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div class="contact-text">
+                            skynigh1
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            https://skynightbuilds.com/
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p class="footer-description">
+                    Abonnez-vous pour recevoir mes dernières créations et actualités directement dans votre boîte mail.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                &copy; 2025 <a href="#">SkyNight</a>. Tous droits réservés - By MaxLananas
+            </div>
+            <div class="footer-links-bottom">
+                <a href="#" class="footer-link-bottom">Politique de confidentialité</a>
+                <a href="#" class="footer-link-bottom">Conditions d'utilisation</a>
+                <a href="#" class="footer-link-bottom">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navigation sticky
+        const navContainer = document.querySelector('.nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navContainer.classList.add('nav-scrolled');
+            } else {
+                navContainer.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // Menu mobile
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Filtrage de la galerie
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                // Supprimer la classe active de tous les boutons
+                filterChips.forEach(c => c.classList.remove('active'));
+                
+                // Ajouter la classe active au bouton cliqué
+                chip.classList.add('active');
+                
+                // Obtenir la catégorie à filtrer
+                const filter = chip.getAttribute('data-filter');
+                
+                // Filtrer les éléments
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxTitle = document.querySelector('.lightbox-title');
+        const lightboxDescription = document.querySelector('.lightbox-description');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+        
+        let currentIndex = 0;
+        
+        // Ouvrir la lightbox
+        lightboxTriggers.forEach((trigger, index) => {
+            trigger.addEventListener('click', () => {
+                currentIndex = index;
+                const itemImage = trigger.closest('.gallery-item').querySelector('.gallery-image');
+                const title = trigger.getAttribute('data-title');
+                const description = trigger.getAttribute('data-description');
+                
+                lightboxImage.src = itemImage.src;
+                lightboxTitle.textContent = title;
+                lightboxDescription.textContent = description;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Fermer la lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Fermer en cliquant en dehors de l'image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Navigation dans la lightbox
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + lightboxTriggers.length) % lightboxTriggers.length;
+            updateLightbox(currentIndex);
+        });
+        
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % lightboxTriggers.length;
+            updateLightbox(currentIndex);
+        });
+        
+        function updateLightbox(index) {
+            const trigger = lightboxTriggers[index];
+            const itemImage = trigger.closest('.gallery-item').querySelector('.gallery-image');
+            const title = trigger.getAttribute('data-title');
+            const description = trigger.getAttribute('data-description');
+            
+            lightboxImage.src = itemImage.src;
+            lightboxTitle.textContent = title;
+            lightboxDescription.textContent = description;
+        }
+        
+        // Navigation clavier pour la lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + lightboxTriggers.length) % lightboxTriggers.length;
+                updateLightbox(currentIndex);
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % lightboxTriggers.length;
+                updateLightbox(currentIndex);
+            } else if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Bouton "Charger plus"
+        const loadMoreBtn = document.querySelector('.load-more-btn');
+        loadMoreBtn.addEventListener('click', () => {
+            // Simuler un chargement
+            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+            
+            // Après un délai (simulant une requête AJAX)
+            setTimeout(() => {
+                loadMoreBtn.innerHTML = 'Charger plus <i class="fas fa-sync-alt"></i>';
+                // Ici, on pourrait ajouter de nouveaux éléments à la galerie
+                alert('Fonctionnalité de chargement à implémenter avec vos données réelles.');
+            }, 1500);
+        });
+        
+        // Animation au défilement
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.animate-slide-up, .animate-fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
