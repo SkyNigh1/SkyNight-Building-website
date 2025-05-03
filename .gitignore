@@ -1,0 +1,17 @@
+# Ignorer les fichiers système
+Thumbs.db
+.DS_Store
+
+# Ignorer les fichiers de configuration IDE
+.idea/
+.vscode/
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les fichiers de build
+node_modules/
+dist/
+build/
+
+!img/
