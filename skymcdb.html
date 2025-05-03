@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SkymcDB - Logiciel de gestion innovant pour builders créé par SkyNight.">
+    <meta name="keywords" content="SkyNight, SkymcDB, logiciel, outil, builder, gestion">
+    <meta name="author" content="SkyNight">
+    <meta name="theme-color" content="#121212">
+    <title>SkyNight | SkymcDB</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Variables et styles de base (identiques à la page d'accueil) */
+        :root {
+            /* Couleurs du thème noir */
+            --color-bg-primary: #121212;
+            --color-bg-secondary: #1a1a1a;
+            --color-bg-tertiary: #222222;
+            --color-bg-accent: #2d2d2d;
+            
+            /* Couleurs d'accent */
+            --color-accent-dark: rgb(0, 115, 73);
+            --color-accent-light: rgb(64, 215, 124);
+            --color-accent-gradient: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent-light));
+            
+            /* Couleurs de texte */
+            --color-text-primary: rgba(255, 255, 255, 0.95);
+            --color-text-secondary: rgba(255, 255, 255, 0.75);
+            --color-text-tertiary: rgba(255, 255, 255, 0.5);
+            
+            /* Couleurs d'overlay */
+            --color-overlay-subtle: rgba(0, 0, 0, 0.3);
+            --color-overlay-medium: rgba(0, 0, 0, 0.6);
+            --color-overlay-strong: rgba(0, 0, 0, 0.85);
+            
+            /* Couleurs d'interface */
+            --color-surface: rgba(255, 255, 255, 0.05);
+            --color-surface-hover: rgba(255, 255, 255, 0.08);
+            --color-surface-active: rgba(255, 255, 255, 0.12);
+            --color-border: rgba(255, 255, 255, 0.1);
+            
+            /* Espacement */
+            --space-3xs: 0.25rem;
+            --space-2xs: 0.375rem;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Typographie */
+            --font-primary: 'Outfit', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --fw-light: 300;
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            --fw-extrabold: 800;
+            --fw-black: 900;
+            
+            /* Ombres */
+            --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.4);
+            --shadow-accent: 0 5px 25px rgba(64, 215, 124, 0.3);
+            
+            /* Border Radius */
+            --radius-xs: 3px;
+            --radius-sm: 5px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-circle: 50%;
+            --radius-pill: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Z-index */
+            --z-below: -1;
+            --z-base: 1;
+            --z-elevated: 10;
+            --z-navbar: 100;
+            --z-dropdown: 200;
+            --z-modal: 300;
+            --z-overlay: 400;
+            --z-max: 999;
+        }
+        
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: var(--font-secondary);
+            font-weight: var(--fw-regular);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: var(--fw-bold);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-medium);
+        }
+        
+        button {
+            font-family: var(--font-primary);
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        ul, ol {
+            list-style: none;
+        }
+        
+        img, svg, video {
+            display: block;
+            max-width: 100%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 clamp(var(--space-sm), 5vw, var(--space-xl));
+        }
+        
+        .text-accent {
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+            position: relative;
+        }
+        
+        .section-dark {
+            background-color: var(--color-bg-secondary);
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            font-weight: var(--fw-extrabold);
+        }
+        
+        .section-description {
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            font-size: 1.2rem;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-navbar);
+            padding: var(--space-md);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-border);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-scrolled {
+            padding: var(--space-xs);
+        }
+        
+        .nav-scrolled .nav-inner {
+            background: rgba(18, 18, 18, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo-symbol {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-circle);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-symbol::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: var(--color-accent-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        .logo-symbol::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: var(--radius-circle);
+            background: var(--color-accent-gradient);
+            animation: pulse 3s infinite;
+        }
+        
+        .logo {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: var(--fw-black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-family: var(--font-primary);
+            font-weight: var(--fw-medium);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-secondary);
+            transition: var(--transition-medium);
+            padding: var(--space-xs) 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent-gradient);
+            transition: var(--transition-medium);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text-primary);
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-circle);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            z-index: var(--z-max);
+            transition: var(--transition-medium);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 140px 0 var(--space-3xl);
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: var(--z-base);
+        }
+        
+        .hero-pretitle {
+            display: inline-block;
+            margin-bottom: var(--space-md);
+            color: var(--color-accent-light);
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: var(--space-lg);
+            font-weight: var(--fw-black);
+            line-height: 1.1;
+        }
+        
+        .hero-description {
+            color: var(--color-text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-primary);
+            font-weight: var(--fw-semibold);
+            font-size: 1rem;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            z-index: var(--z-base);
+        }
+        
+        .btn-primary {
+            background: var(--color-accent-gradient);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .btn-secondary {
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-surface-hover);
+            transform: translateY(-5px);
+            border-color: var(--color-accent-light);
+        }
+        
+        .btn-text {
+            position: relative;
+            z-index: var(--z-base);
+        }
+        
+        .btn-icon {
+            position: relative;
+            z-index: var(--z-base);
+            transition: var(--transition-medium);
+        }
+        
+        .btn:hover .btn-icon {
+            transform: translateX(3px);
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: var(--z-base);
+        }
+        
+        .software-mockup {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition-medium);
+            position: relative;
+        }
+        
+        .software-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .software-mockup img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+        }
+        
+        .software-mockup-frame {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            padding: 2px;
+            background: var(--color-accent-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: glow 3s infinite;
+            pointer-events: none;
+        }
+        
+        .software-floating-ui {
+            position: absolute;
+            border-radius: var(--radius-md);
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            padding: var(--space-sm);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .ui-element-1 {
+            top: -20px;
+            right: -30px;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-pill);
+            animation-delay: 1s;
+        }
+        
+        .ui-element-2 {
+            bottom: 30px;
+            left: -40px;
+            padding: var(--space-sm) var(--space-md);
+            animation-delay: 2s;
+        }
+        
+        .ui-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-circle);
+            background: var(--color-accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .ui-text {
+            font-size: 0.9rem;
+            font-weight: var(--fw-medium);
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .feature-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition-medium);
+            border: 1px solid var(--color-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: var(--color-surface-hover);
+            border-color: var(--color-accent-light);
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-circle);
+            background: rgba(64, 215, 124, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            color: var(--color-accent-light);
+            font-size: 1.8rem;
+            border: 1px solid rgba(64, 215, 124, 0.2);
+            transition: var(--transition-medium);
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: var(--color-accent-gradient);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.1);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .feature-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+            flex-grow: 1;
+        }
+        
+        /* Interface Preview Section */
+        .interface-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interface-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .interface-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-xl);
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: var(--space-sm) var(--space-xl);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-primary);
+            font-weight: var(--fw-medium);
+            font-size: 0.95rem;
+            transition: var(--transition-medium);
+        }
+        
+        .tab-button.active {
+            background: var(--color-accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .tab-button:hover:not(.active) {
+            background: var(--color-surface-hover);
+            transform: translateY(-3px);
+        }
+        
+        .interface-content {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        .tab-panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .testimonial-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition-medium);
+            border: 1px solid var(--color-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: var(--color-surface-hover);
+            border-color: var(--color-accent-light);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-content {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1;
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            line-height: 0;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: var(--color-accent-light);
+            opacity: 0.2;
+        }
+        
+        .testimonial-text {
+            color: var(--color-text-secondary);
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-circle);
+            overflow: hidden;
+            border: 2px solid var(--color-accent-light);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-weight: var(--fw-semibold);
+            margin-bottom: 0;
+        }
+        
+        .author-info p {
+            color: var(--color-text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        /* Download Section */
+        .download-section {
+            text-align: center;
+            padding: var(--space-3xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: var(--z-base);
+        }
+        
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(64, 215, 124, 0.1);
+            color: var(--color-accent-light);
+            border-radius: var(--radius-pill);
+            font-family: var(--font-primary);
+            font-weight: var(--fw-semibold);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(64, 215, 124, 0.3);
+        }
+        
+        .download-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .download-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            font-size: 1.2rem;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .platform-options {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .platform-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-circle);
+            background: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border);
+            transition: var(--transition-medium);
+        }
+        
+        .platform-option:hover .platform-icon {
+            background: var(--color-accent-gradient);
+            color: white;
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+        
+        .platform-name {
+            font-family: var(--font-primary);
+            font-weight: var(--fw-medium);
+        }
+        
+        /* Stats */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: var(--space-2xl) 0;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 3rem;
+            font-weight: var(--fw-bold);
+            margin-bottom: var(--space-xs);
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .stat-label {
+            color: var(--color-text-secondary);
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Background Elements */
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: var(--z-below);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .gradient-blob {
+            position: absolute;
+            border-radius: var(--radius-circle);
+            filter: blur(70px);
+            opacity: 0.15;
+            background: var(--color-accent-gradient);
+            animation: pulse 15s infinite alternate ease-in-out;
+        }
+        
+        .gradient-blob-1 {
+            width: 600px;
+            height: 600px;
+            top: -300px;
+            right: -200px;
+        }
+        
+        .gradient-blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -400px;
+            left: -300px;
+            animation-delay: 5s;
+        }
+        
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=');
+            opacity: 0.3;
+            z-index: var(--z-below);
+            pointer-events: none;
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: var(--z-below);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-circle);
+            opacity: 0.2;
+            animation: float 20s infinite linear;
+        }
+        
+        .floating-circle-1 {
+            width: 300px;
+            height: 300px;
+            top: 15%;
+            right: 10%;
+            animation-duration: 30s;
+        }
+        
+        .floating-circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            left: 5%;
+            animation-duration: 25s;
+            animation-delay: 2s;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.15;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.2;
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(64, 215, 124, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(64, 215, 124, 0.8);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s both;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s both;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        
+        /* Footer */
+        .footer {
+            position: relative;
+            padding: var(--space-2xl) clamp(var(--space-sm), 5vw, var(--space-xl)) var(--space-lg);
+            background: var(--color-bg-tertiary);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: var(--fw-extrabold);
+            background: var(--color-accent-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+        
+        .footer-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-circle);
+            background: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            transition: var(--transition-medium);
+            border: 1px solid var(--color-border);
+        }
+        
+        .social-link:hover {
+            background: var(--color-accent-gradient);
+            transform: translateY(-5px);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .footer-heading {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: var(--fw-bold);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background: var(--color-accent-gradient);
+            border-radius: var(--radius-pill);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-text-secondary);
+            transition: var(--transition-medium);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-accent-light);
+            transform: translateX(5px);
+        }
+        
+        .footer-link-icon {
+            font-size: 0.75rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .contact-icon {
+            color: var(--color-accent-light);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .contact-text {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: var(--space-md);
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+            color: var(--color-text-primary);
+            font-size: 0.875rem;
+            outline: none;
+            transition: var(--transition-medium);
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--color-accent-light);
+            background: var(--color-surface-hover);
+        }
+        
+        .newsletter-button {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-accent-gradient);
+            border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+            color: white;
+            font-size: 0.875rem;
+            transition: var(--transition-medium);
+        }
+        
+        .newsletter-button:hover {
+            filter: brightness(1.1);
+        }
+        
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-lg);
+            margin-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-tertiary);
+            font-size: 0.875rem;
+        }
+        
+        .footer-copyright a {
+            color: var(--color-accent-light);
+            font-weight: var(--fw-medium);
+        }
+        
+        .footer-links-bottom {
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .footer-link-bottom {
+            color: var(--color-text-tertiary);
+            transition: var(--transition-medium);
+        }
+        
+        .footer-link-bottom:hover {
+            color: var(--color-accent-light);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .hero-content {
+                order: 2;
+                text-align: center;
+            }
+            
+            .hero-description, .hero-cta {
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-image {
+                order: 1;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--color-bg-tertiary);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--space-lg);
+                transition: var(--transition-medium);
+                z-index: var(--z-navbar);
+            }
+            
+            .nav-links.active {
+                right: 0;
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+            
+            .footer-links-bottom {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-gradient">
+        <div class="gradient-blob gradient-blob-1"></div>
+        <div class="gradient-blob gradient-blob-2"></div>
+    </div>
+    
+    <div class="floating-element floating-circle-1"></div>
+    <div class="floating-element floating-circle-2"></div>
+    
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="logo-container">
+                <div class="logo-symbol"></div>
+                <div class="logo">SkyNight</div>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="builds.html" class="nav-link">My Builds</a></li>
+                    <li><a href="gallery.html" class="nav-link">Renders Gallery</a></li>
+                    <li><a href="skymcdb.html" class="nav-link active">SkymcDB</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content animate-fade-in">
+                    <span class="hero-pretitle">Logiciel</span>
+                    <h1 class="hero-title"><span class="text-accent">SkymcDB</span> - La solution ultime pour builders</h1>
+                    <p class="hero-description">
+                        Un outil puissant et intuitif conçu pour gérer, organiser et optimiser vos projets de construction. Développé par un builder pour des builders.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary">
+                            <span class="btn-text">Télécharger</span>
+                            <i class="fas fa-download btn-icon"></i>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <span class="btn-text">Découvrir les fonctionnalités</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image animate-fade-in delay-300">
+                    <div class="software-mockup">
+                        <img src="./img/image-to-pixel-art.png" alt="Interface SkymcDB">
+                        <div class="software-mockup-frame"></div>
+                    </div>
+                    
+                    <div class="software-floating-ui ui-element-1">
+                        <div class="ui-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="ui-text">Linear Gradient</div>
+                    </div>
+                    
+                    <div class="software-floating-ui ui-element-2">
+                        <div class="ui-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="ui-text">Image to Pixel-Art</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title animate-fade-in">Fonctionnalités <span class="text-accent">Avancées</span></h2>
+            <p class="section-description animate-fade-in">
+                Découvrez les outils puissants qui vous permettront d'optimiser votre workflow et d'améliorer vos créations.
+            </p>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card animate-slide-up delay-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="feature-title">Color to block</h3>
+                    <p class="feature-description">
+                        Convertissez automatiquement n'importe quelle couleur en bloc Minecraft le plus proche visuellement, facilitant la création de gradients et de palettes harmonieuses.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card animate-slide-up delay-200">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="feature-title">Bibliothèque de blocs</h3>
+                    <p class="feature-description">
+                        Accédez à une bibliothèque exhaustive de blocs et matériaux avec statistiques d'utilisation et compatibilité de palette.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card animate-slide-up delay-300">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Image to Pixel art converter</h3>
+                    <p class="feature-description">
+                        Transformez facilement vos images en pixel art optimisé pour Minecraft avec notre convertisseur intelligent qui sélectionne automatiquement les blocs les plus appropriés.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card animate-slide-up delay-400">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Perlin Noise Generator</h3>
+                    <p class="feature-description">
+                        Générez des terrains naturels et organiques avec notre générateur de bruit de Perlin intégré. Créez facilement des paysages réalistes et personnalisables pour vos projets.
+                    </p>
+                    <p class="feature-description">
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card animate-slide-up delay-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <h3 class="feature-title">Exportez les image facilement</h3>
+                    <p class="feature-description">
+                        Exportez vos créations dans différents formats d'image optimisés.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card animate-slide-up delay-200">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="feature-title">Logiciel optimisée</h3>
+                    <p class="feature-description">
+                        
+                    </p>
+                    <p class="feature-description">
+                        Une application légère et performante, conçue pour fonctionner efficacement même sur des configurations modestes tout en offrant une expérience utilisateur fluide et réactive.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interface Preview Section -->
+    <section class="section interface-section">
+        <div class="container">
+            <h2 class="section-title animate-fade-in">Interface <span class="text-accent">Intuitive</span></h2>
+            <p class="section-description animate-fade-in">
+                Une expérience utilisateur fluide et moderne, conçue pour maximiser votre productivité.
+            </p>
+            
+            <div class="interface-container">
+                <div class="interface-tabs animate-fade-in">
+                    <button class="tab-button active" data-tab="dashboard">Linear gradient</button>
+                    <button class="tab-button" data-tab="projects">Color to block</button>
+                    <button class="tab-button" data-tab="blocks">Image to pixel art</button>
+                    <button class="tab-button" data-tab="stats">Perlin noise generator</button>
+                </div>
+                
+                <div class="interface-content animate-fade-in">
+                    <div class="tab-panel active" id="dashboard">
+                        <img src="./img/linear-gradient.png" alt="Dashboard SkymcDB">
+                    </div>
+                    <div class="tab-panel" id="projects">
+                        <img src="./img/color to block.png" alt="Gestionnaire de projets SkymcDB">
+                    </div>
+                    <div class="tab-panel" id="blocks">
+                        <img src="./img/image-to-pixel-art.png" alt="Bibliothèque de blocs SkymcDB">
+                    </div>
+                    <div class="tab-panel" id="stats">
+                        <img src="./img/perlin-noise.png" alt="Statistiques SkymcDB">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title animate-fade-in">Ce qu'en disent les <span class="text-accent">Utilisateurs</span></h2>
+            <p class="section-description animate-fade-in">
+                Découvrez les expériences de la communauté qui a adopté SkymcDB dans son workflow quotidien.
+            </p>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card animate-slide-up delay-100">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            SkymcDB a complètement révolutionné ma façon d'organiser mes projets. L'interface intuitive et les fonctionnalités puissantes me font gagner des heures de travail chaque semaine.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="./img/renders/max.jpg" alt="Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>MaxLananas</h4>
+                            <p>Builder professionnel</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card animate-slide-up delay-200">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            La fonction d'analyse statistique m'a permis d'identifier des patterns dans mes constructions que je n'aurais jamais remarqués autrement. C'est comme avoir un assistant personnel qui comprend votre style.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="./img/renders/skynight.jpg" alt="Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>SkyNight</h4>
+                            <p>Créateur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-slide-up delay-200">
+                    <div class="testimonial-content">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Un logiciel qui répondait à tous mes besoins de builder. Les outils sont intuitifs et les fonctionnalités comme le color to block et l'image to pixel art sont vraiment indispensables. Je recommande fortement !
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="./img/cc_-_Copie.jpg" alt="Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Coucou_toi</h4>
+                            <p>Fondateur de la communautée Potager</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <div class="section">
+        <div class="container">
+            <div class="stats-container animate-fade-in">
+                <div class="stat-item">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Utilisateurs actifs</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">Projets gérés</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Mises à jour</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">99%</div>
+                    <div class="stat-label">Satisfaction client</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Download Section -->
+    <section id="download" class="download-section section-dark">
+        <div class="download-container animate-fade-in">
+            <div class="version-badge">Version 1.4</div>
+            <h2 class="download-title">Prêt à <span class="text-accent">Commencer</span> ?</h2>
+            <p class="download-description">
+                Téléchargez dès maintenant SkymcDB et transformez votre approche de la création architecturale.
+            </p>
+            
+            <div class="download-buttons">
+                <a href="https://www.dropbox.com/scl/fi/903uvypyu4trpcb5hmpla/SkymcDB_Installer.exe?rlkey=b5a5mkrbzsjgjzlbsccovzsxf&st=zytvdr11&dl=1" class="btn btn-primary">
+                    <span class="btn-text">Télécharger gratuitement</span>
+                    <i class="fas fa-download btn-icon"></i>
+                </a>
+            </div>
+            
+            <div class="platform-options">
+                <a href="#" class="platform-option">
+                    <div class="platform-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <span class="platform-name">Windows</span>
+                </a>
+                
+                <a href="#" class="platform-option" style="display: none;"></a>
+                    <div class="platform-icon" style="display: none;">
+                        <i class="fab fa-apple" style="display: none;"></i>
+                    </div>
+                    <span class="platform-name" style="display: none;">macOS</span>
+                </a>
+                
+                <a href="#" class="platform-option" style="display: none;"></a>
+                    <div class="platform-icon" style="display: none;">
+                        <i class="fab fa-linux" style="display: none;"></i>
+                    </div>
+                    <span class="platform-name" style="display: none;">Linux</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <div class="logo-symbol"></div>
+                    <a href="#" class="footer-logo">SkyNight</a>
+                </div>
+                <p class="footer-description">
+                    Création d'univers architecturaux virtuels uniques et immersifs. Builder passionné offrant des services de construction personnalisés de haute qualité.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.patreon.com/SkyNightBuilds" class="social-link" target="_blank"><i class="fab fa-patreon"></i></a>
+                    <a href="https://www.instagram.com/skynight.builds/profilecard/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/SkyNigh1" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/users/904405300776431616" class="social-link" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/SkyNight_Builds" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Accueil</a></li>
+                    <li><a href="builds.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> My Builds</a></li>
+                    <li><a href="gallery.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Renders Gallery</a></li>
+                    <li><a href="skymcdb.html" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> SkymcDB</a></li>
+                    <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> À propos</a></li>
+                    <li><a href="#services" class="footer-link"><i class="fas fa-chevron-right footer-link-icon"></i> Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Contact</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div class="contact-text">
+                            skynigh1
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            https://skynightbuilds.com/
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p class="footer-description">
+                    Abonnez-vous pour recevoir mes dernières créations et actualités directement dans votre boîte mail.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                &copy; 2025 <a href="#">SkyNight</a>. Tous droits réservés - By MaxLananas
+            </div>
+            <div class="footer-links-bottom">
+                <a href="#" class="footer-link-bottom">Politique de confidentialité</a>
+                <a href="#" class="footer-link-bottom">Conditions d'utilisation</a>
+                <a href="#" class="footer-link-bottom">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navigation sticky
+        const navContainer = document.querySelector('.nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navContainer.classList.add('nav-scrolled');
+            } else {
+                navContainer.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // Menu mobile
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Interface Tabs
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Supprimer la classe active de tous les boutons et panneaux
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                
+                // Ajouter la classe active au bouton cliqué
+                button.classList.add('active');
+                
+                // Activer le panneau correspondant
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Animation au défilement
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.animate-slide-up, .animate-fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // Smooth scrolling pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
